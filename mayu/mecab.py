@@ -2,6 +2,7 @@ import MeCab
 import collections
 import pprint
 import re
+import csv
 
 mecab = MeCab.Tagger('/usr/local/lib/mecab/dic/mecab-ipadic-neologd')
 
@@ -29,7 +30,6 @@ while(1):
 mecab.parse('')
 node = mecab.parseToNode(text)
 m = {}
-n=[]
 while node:
     
     word = node.surface
@@ -43,8 +43,10 @@ while node:
     node = node.next
 
 n=sorted(m.items(),key=lambda x:x[1],reverse=True)
-pprint.pprint(n)
+#pprint.pprint(n)
 
-
-
-
+with open('/Users/mayu/Git/PythonNLP/mayu/result.csv','w') as g:
+    writer = csv.writer(g)
+    writer.writerow(n)
+    
+   
