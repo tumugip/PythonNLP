@@ -45,8 +45,10 @@ while node:
 n=sorted(m.items(),key=lambda x:x[1],reverse=True)
 #pprint.pprint(n)
 
+
+
 with open('/Users/mayu/Git/PythonNLP/mayu/result.csv','w') as g:
     writer = csv.writer(g)
-    writer.writerow(n)
+    writer.writerows(n)
     
    
